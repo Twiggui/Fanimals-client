@@ -1,4 +1,5 @@
 import React from 'react';
+import { useForm } from 'react-hook-form';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -11,6 +12,9 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { useHistory } from 'react-router-dom';
+
+import API from '../../services/API';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,7 +47,18 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignIn() {
+  const history = useHistory();
   const classes = useStyles();
+  const { register, handleSubmit } = useForm({ mode: 'onBlur' });
+  const onSubmit = (data) => {
+    console.log(data);
+    API.post('/auth/signIn', data)
+      .then(() => handleRedirect())
+      .catch(() => console.log('error'));
+  };
+  const handleRedirect = () => {
+    history.push('/animaux');
+  };
 
   return (
     <Container component='main' maxWidth='xs'>
@@ -55,7 +70,11 @@ export default function SignIn() {
         <Typography component='h1' variant='h5'>
           Sign in
         </Typography>
-        <form className={classes.form} noValidate>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className={classes.form}
+          noValidate
+        >
           <TextField
             variant='outlined'
             margin='normal'
@@ -66,6 +85,7 @@ export default function SignIn() {
             name='email'
             autoComplete='email'
             autoFocus
+            inputRef={register}
           />
           <TextField
             variant='outlined'
@@ -77,6 +97,7 @@ export default function SignIn() {
             type='password'
             id='password'
             autoComplete='current-password'
+            inputRef={register}
           />
           <FormControlLabel
             control={<Checkbox value='remember' color='primary' />}

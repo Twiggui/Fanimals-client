@@ -79,7 +79,7 @@ export default function SignUp() {
             <Grid item xs={12} sm={6}>
               <TextField
                 autoComplete='fname'
-                name='prénom'
+                name='firstname'
                 variant='outlined'
                 required
                 fullWidth
@@ -96,7 +96,7 @@ export default function SignUp() {
                 fullWidth
                 id='nom'
                 label='Nom'
-                name='nom'
+                name='lastname'
                 autoComplete='nom'
                 inputRef={register}
               />
@@ -125,7 +125,7 @@ export default function SignUp() {
             <Grid item xs={12} sm={6}>
               <TextField
                 autoComplete='code'
-                name='code'
+                name='postal'
                 variant='outlined'
                 required
                 fullWidth
@@ -145,7 +145,7 @@ export default function SignUp() {
             <Grid item xs={12} sm={6}>
               <TextField
                 autoComplete='ville'
-                name='ville'
+                name='city'
                 variant='outlined'
                 required
                 fullWidth
@@ -193,7 +193,7 @@ export default function SignUp() {
                 variant='outlined'
                 required
                 fullWidth
-                name='password'
+                name='password_confirmation'
                 label='Confirmation password'
                 type='password'
                 id='password'

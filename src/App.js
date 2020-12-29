@@ -7,6 +7,7 @@ import SignIn from './components/SignIn/SignIn';
 import SignUp from './components/SignUp/SignUp';
 import Annonces from './components/Annonces/Annonces';
 import FicheDetail from './components/Annonces/FicheDetail';
+import Context from './Context';
 
 function App() {
   return (
