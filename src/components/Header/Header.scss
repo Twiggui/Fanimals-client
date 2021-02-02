@@ -5,9 +5,10 @@
   height: 60px;
   display: flex;
   justify-content: flex-end;
+  color: $primary-font-color;
   .link {
     text-decoration: none;
-    color: black;
+    color: $primary-font-color;
     padding: 0px 50px;
   }
 }

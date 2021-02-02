@@ -51,7 +51,6 @@ export default function SignUp() {
   const classes = useStyles();
   const { register, handleSubmit, errors } = useForm({ mode: 'onBlur' });
   const onSubmit = (data) => {
-    console.log(data);
     API.post('/users/signUp', data)
       .then(() => handleRedirect())
       .catch(() => console.log('error'));
@@ -113,6 +112,7 @@ export default function SignUp() {
                 inputRef={register({
                   required: true,
                   pattern: {
+                    // eslint-disable-next-line no-useless-escape
                     value: /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/,
                     message:
                       'Veuillez saisir un format de date valide JJ/MM/AAAA',

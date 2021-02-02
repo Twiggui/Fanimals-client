@@ -51,7 +51,6 @@ export default function SignIn() {
   const classes = useStyles();
   const { register, handleSubmit } = useForm({ mode: 'onBlur' });
   const onSubmit = (data) => {
-    console.log(data);
     API.post('/auth/signIn', data)
       .then(() => handleRedirect())
       .catch(() => console.log('error'));
