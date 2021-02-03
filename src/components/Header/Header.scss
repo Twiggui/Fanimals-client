@@ -1,11 +1,21 @@
 @import '../Variables';
 
+.menu-burger {
+  position: relative;
+  top: -25px;
+}
 .header {
   background-color: $primary-color;
-  height: 60px;
+  height: 100px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
   color: $primary-font-color;
+  .logo {
+    position: absolute;
+    left: 70px;
+    width: 90px;
+  }
   .link {
     text-decoration: none;
     color: $primary-font-color;
