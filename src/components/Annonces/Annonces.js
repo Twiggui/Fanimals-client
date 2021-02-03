@@ -1,13 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import FicheAnnonce from './template/FicheAnnonce';
 import InputLabel from '@material-ui/core/InputLabel';
 import NativeSelect from '@material-ui/core/NativeSelect';
+import { UserContext } from '../../context/UserContext';
 
 import './Annonces.scss';
 import API from '../../services/API';
 
 const Annonces = () => {
-  const [allAnimals, setAllAnimals] = useState([]);
+  const {
+    // userDetails,
+    // setUserDetails,
+    // loggedIn,
+    // setLoggedIn,
+    allAnimals,
+    setAllAnimals,
+  } = useContext(UserContext);
+
+  // const [allAnimals, setAllAnimals] = useState([]);
   const [filter, setFilter] = useState({
     sex: '',
     age: '',
@@ -108,7 +118,7 @@ const Annonces = () => {
           </NativeSelect>
         </div>
       </div>
-      <div className='annonces'>
+      <div className='annonces-list'>
         {allAnimals.map((element) => (
           <div key={element.nom} className='annonce'>
             <FicheAnnonce animal={element} />

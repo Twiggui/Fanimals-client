@@ -3,50 +3,64 @@
 .ficheAnnonce {
   margin: 10px 0;
   display: flex;
-  width: 90%;
-  min-height: 300px;
-  background-color: $primary-color;
+  width: 390px;
+  border-bottom: solid 1px $primary-color;
+  border-right: solid 1px $primary-color;
   // color: $primary-font-color;
   .presentationAnimal {
-    width: 30%;
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
+    padding: 30px;
+    h2 {
+      margin: 0;
+    }
     .imageAnimal {
-      width: 80%;
+      width: 300px;
     }
-  }
-  .aside {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 70%;
     .caracteristiques {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(5, 1fr);
-      grid-gap: 10px;
-      text-align: left;
-      margin-left: 10%;
-      .general {
-        font-weight: bold;
-      }
-    }
-    .detailAnnonce {
       display: flex;
-      justify-content: space-around;
-      align-items: center;
-      .detailAnnonceBoutton {
-        width: 150px;
-        height: 50px;
-        cursor: pointer;
-        background-color: $secondary-color;
-        border: none;
-        a {
-          text-decoration: none;
-          color: black;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    .detailAnnonceBoutton {
+      position: relative;
+      left: 200px;
+      width: 150px;
+      height: 50px;
+      cursor: pointer;
+      border-radius: 30px;
+      border: none;
+      background-color: $secondary-color;
+      color: $primary-font-color;
+      color: #ffffff;
+      font-size: 1rem;
+      cursor: pointer;
+      text-align: center;
+      transition: 250ms ease-in-out, transform 150ms ease;
+
+      &:hover,
+      &:focus {
+        background: #00ba19;
+      }
+      a {
+        text-decoration: none;
+        color: $primary-font-color;
+      }
+
+      .aside {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 70%;
+        .general {
+          font-weight: bold;
         }
       }
     }
